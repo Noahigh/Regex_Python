@@ -1,7 +1,8 @@
 """
 @time 2017年12月29日20:00:56
 @author Noah
-@content Regular Expression"""
+@content Regular Expression
+"""
 import re #导入 re 模块
 
 # *   匹配前一个字符0次或无限次
@@ -18,8 +19,14 @@ print(ma3.group()) #输出：2
 
 # {m} / {m, n} 匹配前一个字符m次或者m次到n次
 ma4 = re.match(r'[\w]{2,3}', 'a2fvvd')
-print(ma4.group())
+print(ma4.group()) #输出：a2f
 
 # *? / +? / ??   匹配模式变为非贪婪模式（尽可能少匹配字符）
-ma5 = re.match(r'[\d][\w]+?', '1234jhksdf83hf23hi')
-print(ma5.group())
+ma5 = re.match(r'[\d][\w]*?', '1234jhksdf83hf23hi')
+print(ma5.group()) #输出：1
+
+ma6 = re.match(r'[\d][\w]+?', '12dw')
+print(ma6.group()) #输出：12
+
+ma7 = re.match(r'[\d][\w]??', '12nn')
+print(ma7.group()) #输出：1
